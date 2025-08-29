@@ -7,7 +7,14 @@ const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // allow all domains
+    methods: ["GET", "POST", "OPTIONS"], // allowed request methods
+    allowedHeaders: ["Content-Type", "Authorization"], // allowed headers
+  })
+);
+
 app.use(bodyParser.json());
 
 function alternateCaps(str) {
@@ -91,4 +98,3 @@ app.post("/bfhl", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on ${BASE_URL}`);
 });
-
