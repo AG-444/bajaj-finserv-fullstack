@@ -57,7 +57,7 @@ app.post("/bfhl", (req, res) => {
     });
 
     const reversed = inputArray
-      .filter((item) => /^[a-zA-Z]+$/.test(item))
+        .filter((item) => /^[a-zA-Z]+$/.test(item))
         .join("")
         .split("")
         .reverse()
