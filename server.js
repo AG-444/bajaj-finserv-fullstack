@@ -56,9 +56,8 @@ app.post("/bfhl", (req, res) => {
         }
     });
 
-    // Build concat string (reverse original letters, then alternating caps)
     const reversed = inputArray
-      .filter((item) => /^[a-zA-Z]+$/.test(item)) // pick only alphabets
+      .filter((item) => /^[a-zA-Z]+$/.test(item))
         .join("")
         .split("")
         .reverse()
@@ -84,10 +83,10 @@ app.post("/bfhl", (req, res) => {
     return res
         .status(200)
         .json({ is_success: false, message: "Server error" });
-  }
+    }
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
